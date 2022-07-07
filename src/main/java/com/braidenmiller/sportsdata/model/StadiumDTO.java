@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StadiumDTO {
     @JsonProperty("StadiumID")
-    private Long stadiumID;
+    private Long id;
     @JsonProperty("Active")
     private boolean active;
     @JsonProperty("Name")

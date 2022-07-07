@@ -19,7 +19,7 @@ public class StadiumMapperImpl implements StadiumMapper {
 
         StadiumEntity stadiumEntity = new StadiumEntity();
 
-        stadiumEntity.setStadiumID( stadiumDTO.getStadiumID() );
+        stadiumEntity.setId( stadiumDTO.getId() );
         stadiumEntity.setActive( stadiumDTO.isActive() );
         stadiumEntity.setName( stadiumDTO.getName() );
         stadiumEntity.setDome( stadiumDTO.isDome() );
@@ -39,7 +39,7 @@ public class StadiumMapperImpl implements StadiumMapper {
 
         StadiumDTO stadiumDTO = new StadiumDTO();
 
-        stadiumDTO.setStadiumID( stadiumEntity.getStadiumID() );
+        stadiumDTO.setId( stadiumEntity.getId() );
         stadiumDTO.setActive( stadiumEntity.isActive() );
         stadiumDTO.setName( stadiumEntity.getName() );
         stadiumDTO.setDome( stadiumEntity.isDome() );

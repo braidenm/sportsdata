@@ -1,17 +1,17 @@
 package com.braidenmiller.sportsdata.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -19,8 +19,7 @@ import javax.persistence.Table;
 @Table(name = "stadium")
 public class StadiumEntity {
     @Id
-    @Column(name = "id", nullable = false)
-    private Long stadiumID;
+    private Long id;
     @Column(name = "active")
     private boolean active;
     @Column(name = "name")
