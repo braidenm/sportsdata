@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "sportsIO.apiKey",
+      "type": "java.lang.String",
+      "description": "Description for sportsIO.apiKey."
+    }
+  ] }
