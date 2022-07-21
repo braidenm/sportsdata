@@ -1,6 +1,7 @@
 package com.braidenmiller.sportsdata.service;
 
 import com.braidenmiller.sportsdata.client.SportsIOClient;
+import com.braidenmiller.sportsdata.entity.StadiumEntity;
 import com.braidenmiller.sportsdata.mappers.StadiumMapper;
 import com.braidenmiller.sportsdata.model.StadiumDTO;
 import com.braidenmiller.sportsdata.repo.StadiumRepo;
@@ -29,6 +30,17 @@ public class StadiumService {
                 .map(entities -> entities.stream()
                         .map(stadiumMapper::fromEntity)
                         .collect(Collectors.toList()))
+                .orElse(null);
+    }
+
+    public StadiumDTO getStadium(Long id) {
+        return stadiumRepo.findById(id)
+                .map(stadiumMapper::fromEntity)
+                .orElse(null);
+    }
+
+    public StadiumEntity getStadiumEntity(Long id) {
+        return stadiumRepo.findById(id)
                 .orElse(null);
     }
 

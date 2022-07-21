@@ -9,8 +9,6 @@ import javax.persistence.*;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@AllArgsConstructor
-@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "team")

@@ -12,8 +12,6 @@ import javax.persistence.Table;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@AllArgsConstructor
-@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "stadium")

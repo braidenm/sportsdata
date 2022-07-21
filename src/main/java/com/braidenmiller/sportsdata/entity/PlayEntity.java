@@ -5,13 +5,12 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-@AllArgsConstructor
-@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "team")
@@ -23,6 +22,9 @@ public class PlayEntity {
     private GameEntity game;
     @Column(name = "date_time")
     private Date dateTime;
+    private String description;
     @OneToOne(mappedBy = "play")
     private WeatherEntity weather;
+    @OneToMany(mappedBy = "play")
+    private List<FootballPlayerStatEntity> playerStats;
 }

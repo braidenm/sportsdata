@@ -4,5 +4,10 @@
       "name": "sportsIO.apiKey",
       "type": "java.lang.String",
       "description": "Description for sportsIO.apiKey."
+    },
+    {
+      "name": "sportsio.playByPlayApiKey",
+      "type": "java.lang.String",
+      "description": "Description for sportsio.playByPlayApiKey."
     }
   ] }

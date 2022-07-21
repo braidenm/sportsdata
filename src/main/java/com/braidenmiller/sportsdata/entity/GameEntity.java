@@ -12,8 +12,6 @@ import java.util.List;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@AllArgsConstructor
-@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "game")
@@ -25,10 +23,6 @@ public class GameEntity {
     private String status;
     @Column(name = "date_time")
     private Date dateTime;
-    @Column(name = "away_team")
-    private String awayTeamName;
-    @Column(name = "home_team")
-    private String homeTeamName;
     @ManyToOne
     @JoinColumn(name = "away_team_id")
     private TeamEntity awayTeam;
