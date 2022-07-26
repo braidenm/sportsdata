@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -21,5 +22,9 @@ public class PlayByPlayService {
     public PlayByPlay savePlayByPlay(String season, Integer week, String homeTeamCode) {
         PlayByPlay playByPlay = sportsIOClient.getPlayByPlay(season, week, homeTeamCode);
         return gameService.saveGame(playByPlay);
+    }
+
+    public List<PlayByPlay> getAllPlayByPlays() {
+        return gameService.getAllGamesAsPlayByPlay();
     }
 }

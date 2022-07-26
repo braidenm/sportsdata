@@ -2,6 +2,7 @@ package com.braidenmiller.sportsdata.client;
 
 import com.braidenmiller.sportsdata.config.SportsIOClientConfig;
 import com.braidenmiller.sportsdata.model.PlayByPlay;
+import com.braidenmiller.sportsdata.model.ScheduleDTO;
 import com.braidenmiller.sportsdata.model.StadiumDTO;
 import com.braidenmiller.sportsdata.model.TeamDTO;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -24,6 +25,10 @@ public interface SportsIOClient {
     @GetMapping(path = "scores/json/AllTeams",
             produces = MediaType.APPLICATION_JSON_VALUE)
     List<TeamDTO> getAllTeams();
+
+    @GetMapping(path = "scores/json/Schedules/{year}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    List<ScheduleDTO> getAllSchedules(@PathVariable Integer year);
 
     @GetMapping(path = "pbp/json/PlayByPlay/{season}/{week}/{teamCode}",
             produces = MediaType.APPLICATION_JSON_VALUE)

@@ -18,4 +18,5 @@ public class PlayDTO {
     private String description;
     @JsonProperty("PlayStats")
     private List<FootballPlayerStatDTO> playerStats;
+    private WeatherDTO weatherDTO;
 }

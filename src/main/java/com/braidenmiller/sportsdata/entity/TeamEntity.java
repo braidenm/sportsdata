@@ -16,7 +16,6 @@ public class TeamEntity {
     @Id
     private Long id;
     private String name;
-    @Column(name = "team_code")
     private String teamCode;
     @ManyToOne
     @JoinColumn(name="stadium_id")

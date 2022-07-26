@@ -16,17 +16,16 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class PlayByPlayController {
-    private final StadiumService stadiumService;
     private final PlayByPlayService playByPlayService;
 
-    @GetMapping("/stadiums")
-    public List<StadiumDTO> getAllStadiums() {
-        return stadiumService.getAllStadiums();
+    @PostMapping(value = "/playByPlay/{season}/{week}/{teamCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public PlayByPlay savePlayByPlay(@PathVariable String season, @PathVariable String teamCode, @PathVariable Integer week) {
+        return playByPlayService.savePlayByPlay(season, week, teamCode);
     }
 
-    @PostMapping(value = "/playByPlay/{season}/{week}/{teamCode}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PlayByPlay populateStadiums(@PathVariable String season, @PathVariable String teamCode, @PathVariable Integer week) {
-        return playByPlayService.savePlayByPlay(season, week, teamCode);
+    @GetMapping(value = "/playByPlay", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PlayByPlay> getAllPlayByPlays() {
+        return playByPlayService.getAllPlayByPlays();
     }
 }
 

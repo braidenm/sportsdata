@@ -12,7 +12,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
-@Table(name = "team")
+@Table(name = "weather_stat")
 public class WeatherEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,15 +20,15 @@ public class WeatherEntity {
     @OneToOne
     @JoinColumn(name = "play_id", referencedColumnName = "id")
     private PlayEntity play;
-    private Integer temperature;
-    @Column(name = "temperature_format")
-    private String temperatureFormat;
-    @Column(name = "wind_direction")
+    private String temperature;
+    private String feelsLike;
     private String windDirection;
-    @Column(name = "wind_speed")
     private String windSpeed;
+    private String windGust;
     @Column(name = "precipitation")
     private String precipitationInInches;
+    private String latitude;
+    private String longitude;
 
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
-@Table(name = "game")
+@Table(name = "football_player_stat")
 public class FootballPlayerStatEntity {
     @Id
     private Long id;
@@ -37,10 +37,18 @@ public class FootballPlayerStatEntity {
     private Integer kickReturnYards;
     private Integer kickReturnTouchdowns;
     private Integer puntYards;
-    private Integer fieldGoalAttempt;
+    private Integer fieldGoalAttempted;
     private Integer fieldGoalMade;
     private Integer interceptionYardReturn;
-    private Integer interceptionTouchdown;
+    private Integer interceptionTouchdowns;
+
     private Integer soloTackles;
     private Integer assistedTackles;
+    private Integer sacks;
+    private Integer passesDefended;
+    private Integer fumblesRecovered;
+    private Integer fumbleReturnTouchdown;
+    private Integer quarterbackHurries;
+    private Integer fumbles;
+    private Integer fumblesLost;
 }

@@ -18,18 +18,11 @@ import javax.persistence.Table;
 public class StadiumEntity {
     @Id
     private Long id;
-    @Column(name = "active")
     private boolean active;
-    @Column(name = "name")
     private String name;
-    @Column(name = "dome")
     private boolean dome;
-    @Column(name = "city")
     private String city;
-    @Column(name = "state")
     private String state;
-    @Column(name = "geo_lat")
     private String geoLat;
-    @Column(name = "geo_long")
     private String geoLong;
 }

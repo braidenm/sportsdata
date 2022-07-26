@@ -9,22 +9,20 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
-@Table(name = "team")
+@Table(name = "play")
 public class PlayEntity {
     @Id
     private Long id;
     @ManyToOne
     @JoinColumn(name = "game_id")
     private GameEntity game;
-    @Column(name = "date_time")
     private Date dateTime;
     private String description;
-    @OneToOne(mappedBy = "play")
+    @OneToOne(mappedBy = "play", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private WeatherEntity weather;
-    @OneToMany(mappedBy = "play")
+    @OneToMany(mappedBy = "play", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<FootballPlayerStatEntity> playerStats;
 }

@@ -6,14 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
-@EnableConfigurationProperties(SportsIOConfig.class)
+@EnableConfigurationProperties(WeatherConfig.class)
 @RequiredArgsConstructor
-public class SportsIOClientConfig {
-    private final SportsIOConfig sportsIOConfig;
+public class WeatherClientConfig {
+    private final WeatherConfig weatherConfig;
 
     @Bean
     public RequestInterceptor requestInterceptorSportsIO() {
-        return new ClientCredentialTokenInterceptor(sportsIOConfig.getApiKey());
+        return new ClientCredentialTokenInterceptor(weatherConfig.getApiKey());
     }
 
     static class ClientCredentialTokenInterceptor implements RequestInterceptor {
@@ -25,7 +25,10 @@ public class SportsIOClientConfig {
 
         @Override
         public void apply(RequestTemplate template) {
-            template.header("Ocp-Apim-Subscription-Key", apiKey);
+
+            template.query("key", apiKey);
+            template.query("contentType", "json");
+            template.query("unitGroup", "us");
         }
     }
 }

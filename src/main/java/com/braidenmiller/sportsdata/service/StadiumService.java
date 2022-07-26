@@ -26,11 +26,9 @@ public class StadiumService {
     }
 
     public List<StadiumDTO> getAllStadiums() {
-        return Optional.of(stadiumRepo.findAll())
-                .map(entities -> entities.stream()
-                        .map(stadiumMapper::fromEntity)
-                        .collect(Collectors.toList()))
-                .orElse(null);
+        return stadiumRepo.findAll().stream()
+                .map(stadiumMapper::fromEntity)
+                .collect(Collectors.toList());
     }
 
     public StadiumDTO getStadium(Long id) {
@@ -45,13 +43,10 @@ public class StadiumService {
     }
 
     public List<StadiumDTO> populateAllStadiums() {
-        return Optional.ofNullable(sportsIOClient.getStadiums())
-                .map(stadiums -> stadiumRepo.saveAll(stadiums.stream()
+        return stadiumRepo.saveAll(sportsIOClient.getStadiums().stream()
                         .map(stadiumMapper::toEntity)
-                        .collect(Collectors.toList())))
-                .map(entities -> entities.stream()
-                        .map(stadiumMapper::fromEntity)
-                        .collect(Collectors.toList()))
-                .orElse(null);
+                        .collect(Collectors.toList())).stream()
+                .map(stadiumMapper::fromEntity)
+                .collect(Collectors.toList());
     }
 }
